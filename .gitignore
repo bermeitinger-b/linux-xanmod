@@ -1,0 +1,6 @@
+*.xz
+*.tar.xz
+*.tar.sign
+*.tar.zst
+config.last
+*.o
