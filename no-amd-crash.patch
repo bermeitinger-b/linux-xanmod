@@ -1,0 +1,29 @@
+From 23b097582b7e1ff501f317942f72b46460a49a95 Mon Sep 17 00:00:00 2001
+From: Bernhard Bermeitinger <bernhard.bermeitinger@unisg.ch>
+Date: Mon, 5 Aug 2024 09:56:48 +0200
+Subject: [PATCH] don't crash AMD_GPU
+
+Signed-off-by: Bernhard Bermeitinger <bernhard.bermeitinger@unisg.ch>
+---
+ drivers/gpu/drm/amd/amdgpu/amdgpu_object.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_object.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_object.c
+index c556c8b65..e8c6092e5 100644
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_object.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_object.c
+@@ -180,8 +180,9 @@ void amdgpu_bo_placement_from_domain(struct amdgpu_bo *abo, u32 domain)
+ 		 * When GTT is just an alternative to VRAM make sure that we
+ 		 * only use it as fallback and still try to fill up VRAM first.
+ 		 */
+-		if (domain & abo->preferred_domains & AMDGPU_GEM_DOMAIN_VRAM)
+-			places[c].flags |= TTM_PL_FLAG_FALLBACK;
++		if (domain & abo->preferred_domains & AMDGPU_GEM_DOMAIN_VRAM &&
++			!(adev->flags & AMD_IS_APU))
++				places[c].flags |= TTM_PL_FLAG_FALLBACK;
+ 		c++;
+ 	}
+ 
+-- 
+2.46.0
+
