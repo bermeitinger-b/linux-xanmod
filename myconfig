@@ -6,7 +6,7 @@ scripts/config --undefine CONFIG_GENERIC_CPU
 scripts/config --undefine CONFIG_GENERIC_CPU2
 scripts/config --undefine CONFIG_GENERIC_CPU3
 scripts/config --undefine CONFIG_GENERIC_CPU4
-scripts/config --set-str CONFIG_LOCALVERSION "-native_amd"
+scripts/config --set-str CONFIG_LOCALVERSION "-mine"
 
 # No NUMA available (use_numa=n)
 scripts/config --disable CONFIG_NUMA
@@ -17,12 +17,15 @@ scripts/config --enable CONFIG_MODULE_COMPRESS_ZSTD
 ## Custom options
 # Disable INTEL
 scripts/config --disable CONFIG_INTEL_IDLE
+scripts/config --disable CONFIG_INTEL_MEI
 scripts/config --disable CONFIG_X86_INTEL_MCE
 scripts/config --disable CONFIG_X86_INTEL_PSTATE
 scripts/config --disable CONFIG_CPU_SUP_INTEL
 scripts/config --disable CONFIG_CPU_SUP_HYGON
 scripts/config --disable CONFIG_CPU_SUP_CENTAUR
 scripts/config --disable CONFIG_CPU_SUP_ZHAOXIN
+scripts/config --disable CONFIG_DRM_I915
+scripts/config --disable CONFIG_DRM_XE
 
 # Disable NVIDIA
 scripts/config --disable CONFIG_DRM_NOUVEAU
@@ -32,12 +35,30 @@ scripts/config --disable CONFIG_FB_NVIDIA_BACKLIGHT
 
 # Disable various drivers
 scripts/config --disable CONFIG_AGP
-scripts/config --disable CONFIG_PCCARD
-scripts/config --disable CONFIG_X86_NUMACHIP
-scripts/config --disable CONFIG_X86_UV
 scripts/config --disable CONFIG_FB_RIVA
+scripts/config --disable CONFIG_FIREWIRE
+scripts/config --disable CONFIG_HAMRADIO
+scripts/config --disable CONFIG_INFINIBAND
 scripts/config --disable CONFIG_MEDIA_ANALOG_TV_SUPPORT
 scripts/config --disable CONFIG_MEDIA_DIGITAL_TV_SUPPORT
 scripts/config --disable CONFIG_MEDIA_RADIO_SUPPORT
-scripts/config --disable CONFIG_HAMRADIO
-
+scripts/config --disable CONFIG_NET_MELLANOX_PLATFORM
+scripts/config --disable CONFIG_NET_VENDOR_MELLANOX
+scripts/config --disable CONFIG_NFC
+scripts/config --disable CONFIG_PCCARD
+scripts/config --disable CONFIG_PPP
+scripts/config --disable CONFIG_PPPOE
+scripts/config --disable CONFIG_SLIP
+scripts/config --disable CONFIG_X86_NUMACHIP
+scripts/config --disable CONFIG_X86_UV
+scripts/config --disable CONFIG_GNSS
+scripts/config --disable CONFIG_MTD
+scripts/config --disable CONFIG_DRM_UDL
+scripts/config --disable CONFIG_DRM_GMA500
+scripts/config --disable CONFIG_DRM_AST
+scripts/config --disable CONFIG_DRM_VGEM
+scripts/config --disable CONFIG_DRM_VKMS
+scripts/config --disable CONFIG_DRM_VMWGFX
+scripts/config --disable CONFIG_DRM_QXL
+scripts/config --disable CONFIG_MEDIA_ANALOG_TV_SUPPORT
+scripts/config --disable CONFIG_MEDIA_DIGITAL_TV_SUPPORT
