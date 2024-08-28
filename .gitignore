@@ -1,0 +1,5 @@
+config.last
+*.sign
+*.xz
+*.tar.zst
+
