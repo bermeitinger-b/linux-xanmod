@@ -1,4 +1,5 @@
 config.last
+*.sig
 *.sign
 *.xz
 *.tar.zst
