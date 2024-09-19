@@ -1,6 +1,12 @@
+
+config-*
 config.last
+*.patch
+*.gz
+*.log
+*.log.*
 *.sig
 *.sign
-*.xz
 *.tar.zst
-
+*.xz
+*.zst

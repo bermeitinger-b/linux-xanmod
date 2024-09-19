@@ -35,8 +35,9 @@ fi
 # Unique compiler supported upstream is GCC
 ## Choose between GCC and CLANG config (default is GCC)
 ## Use the environment variable "_compiler=clang"
+_compiler_flags="${_compiler_flags-}"
 if [ "${_compiler}" = "clang" ]; then
-  _compiler_flags="CC=clang HOSTCC=clang LLVM=1 LLVM_IAS=1 -j $(($(nproc) -1))"
+  _compiler_flags="${_compiler_flags} CC=clang HOSTCC=clang LLVM=1 LLVM_IAS=1 -j $(($(nproc) -1))"
 fi
 
 # Choose between the 4 main configs for stable branch. Default x86-64-v1 which use CONFIG_GENERIC_CPU2:
